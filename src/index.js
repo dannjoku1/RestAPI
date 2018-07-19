@@ -13,7 +13,7 @@ app.listen(PORT, err => {
     --------
     Running on ${process.env.NODE_ENV}
     --------
-    Let's get it 
+    Let's get it!
     `)
   }
 } )
