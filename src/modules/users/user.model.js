@@ -46,7 +46,9 @@ const UserSchema = new Schema({
           message: '{VALUE} is not a valid password!',
         },
       },
-    });
+    },
+    { timestamps: true }
+  );
 
   UserSchema.pre('save', function (next){
     if(this.isModified('password')) {
@@ -75,7 +77,7 @@ const UserSchema = new Schema({
       return {
         _id: this._id,
         userName: this.userName,
-        token: `Passport-JWT ${this.createToken()}` 
+        token: `Passport-JWT ${this.createToken()}`
       }
     }
   };

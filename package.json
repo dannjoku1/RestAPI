@@ -32,9 +32,11 @@
     "joi": "^13.4.0",
     "jsonwebtoken": "^7.4.1",
     "mongoose": "^5.2.4",
+    "mongoose-unique-validator": "^2.0.1",
     "passport": "^0.4.0",
     "passport-jwt": "^2.2.1",
     "passport-local": "^1.0.0",
+    "slug": "^0.9.1",
     "validator": "^10.4.0",
     "webpack": "^4.16.1",
     "webpack-node-externals": "^1.7.2"
