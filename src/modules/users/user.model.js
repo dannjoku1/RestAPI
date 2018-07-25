@@ -1,8 +1,10 @@
 import mongoose, { Schema } from 'mongoose';
 import validator  from 'validator';
 import { hashSync, compareSync } from 'bcrypt-nodejs'
+import jwt from 'jsonwebtoken';
 
 import { passwordReg } from './user.validations';
+import constants from '../../config/constants'
 
 const UserSchema = new Schema({
       email: {
@@ -60,6 +62,21 @@ const UserSchema = new Schema({
     },
     authenticateUser(password) {
       return compareSync(password, this.password);
+    },
+    createToken() {
+      return jwt.sign(
+        {
+          _id: this._id,
+        },
+        constants.JWT_SECRET
+      );
+    },
+    toJSON() {
+      return {
+        _id: this._id,
+        userName: this.userName,
+        token: `Passport-JWT ${this.createToken()}` 
+      }
     }
   };
 

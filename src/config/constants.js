@@ -1,6 +1,7 @@
 const devConfig = {
     //JWT_SECRET: process.env.JWT_SECRET_DEV,
     //MONGO_URL: process.env.MONGO_URL_DEV,
+    JWT_SECRET: 'thisisasecret',
     MONGO_URL: 'mongodb://localhost/restapi-dev',
   };
   
@@ -13,6 +14,7 @@ const devConfig = {
   const prodConfig = {
     //JWT_SECRET: process.env.JWT_SECRET_PROD,
     //MONGO_URL: process.env.MONGO_URL_PROD,
+    JWT_SECRET: 'thisisasecret',
     MONGO_URL: 'mongodb://localhost/restapi-prod',
   };
   
