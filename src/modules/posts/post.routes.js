@@ -1,3 +1,4 @@
+
 import { Router } from 'express';
 import validate from 'express-validation';
 
@@ -8,10 +9,12 @@ import postValidation from './post.validations';
 const routes = new Router();
 
 routes.post(
-    '/',
-    authJwt,
-    validate(postValidation.createPost),
-    postController.createPost,
-  );
+  '/',
+  authJwt,
+  validate(postValidation.createPost),
+  postController.createPost,
+);
+routes.get('/:id', postController.getPostById); // /:id is parnet object 
+//routes.get('/', authJwt, postController.getPostsList);
 
 export default routes;
