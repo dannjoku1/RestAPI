@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 import slug from 'slug';
-//import uniqueValidator from 'mongoose-unique-validator';
+import uniqueValidator from 'mongoose-unique-validator';
 
 const PostSchema = new Schema(
   {
@@ -34,6 +34,7 @@ const PostSchema = new Schema(
   { timestamps: true },
 );
 
+// if post have same title, then error msg
 PostSchema.plugin(uniqueValidator, {
   message: '{VALUE} already taken!',
 });
@@ -54,6 +55,15 @@ PostSchema.methods = {
       favoriteCount: this.favoriteCount,
     };
   },
+};
+
+PostSchema.statics = {
+  createPost(args, user) {
+    return this.create({
+      ...args,
+      user,
+    });
+  }
 };
 
 export default mongoose.model('Post', PostSchema);
