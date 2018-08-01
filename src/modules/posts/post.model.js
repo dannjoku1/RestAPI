@@ -64,7 +64,7 @@ PostSchema.statics = {
       user,
     });
   },
-  list({ skip = 0, limit = 5 } = {}) {
+  list({ skip = 0, limit = 0 } = {}) {
     return this.find()
       .sort({ createdAt: -1 })
       .skip(skip)
