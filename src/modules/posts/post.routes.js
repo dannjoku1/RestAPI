@@ -15,6 +15,6 @@ routes.post(
   postController.createPost,
 );
 routes.get('/:id', postController.getPostById); // /:id is parnet object 
-//routes.get('/', authJwt, postController.getPostsList);
+routes.get('/', postController.getPostsList); // just having '/' allows users to view without having an account
 
 export default routes;
