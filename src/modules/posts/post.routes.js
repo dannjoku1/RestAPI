@@ -1,4 +1,3 @@
-
 import { Router } from 'express';
 import validate from 'express-validation';
 
@@ -14,8 +13,14 @@ routes.post(
   validate(postValidation.createPost),
   postController.createPost,
 );
-routes.get('/:id', postController.getPostById); // /:id is parnet object 
+routes.get('/:id', postController.getPostById); // /:id is parnet object
 routes.get('/', postController.getPostsList); // just having '/' allows users to view without having an account
-routes.patch('/:id', authJwt, validate(postValidation.updatePost), postController.updatePost);
+routes.patch(
+  '/:id',
+  authJwt,
+  validate(postValidation.updatePost),
+  postController.updatePost,
+);
+routes.delete('/:id', authJwt, postController.deletePost);
 
 export default routes;

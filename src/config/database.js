@@ -5,13 +5,13 @@
 import mongoose from 'mongoose';
 import constants from './constants';
 
-//remove warning with promise 
+//remove warning with promise
 mongoose.Promise = global.Promise;
 
 try {
-  mongoose.connect(constants.MONGO_URL)    
+  mongoose.connect(constants.MONGO_URL);
 } catch (err) {
-  mongoose.createConnection(constants.MONGO_URL)     
+  mongoose.createConnection(constants.MONGO_URL);
 }
 
 // error handler

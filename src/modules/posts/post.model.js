@@ -39,7 +39,6 @@ PostSchema.plugin(uniqueValidator, {
   message: '{VALUE} already taken!',
 });
 
-
 PostSchema.methods = {
   _slugify() {
     this.slug = slug(this.title);
@@ -70,7 +69,7 @@ PostSchema.statics = {
       .skip(skip)
       .limit(limit)
       .populate('user');
-  }
+  },
 };
 
 export default mongoose.model('Post', PostSchema);

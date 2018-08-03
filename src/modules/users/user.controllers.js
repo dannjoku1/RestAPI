@@ -1,4 +1,4 @@
-import HTTPStatus from 'http-status'
+import HTTPStatus from 'http-status';
 import User from './user.model';
 
 export async function signUp(req, res) {
